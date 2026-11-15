@@ -1,0 +1,97 @@
+{
+  "info": {
+    "name": "compteservice",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8081"
+    }
+  ],
+  "item": [
+    {
+      "name": "Lister",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/comptes"
+        }
+      }
+    },
+    {
+      "name": "Détail",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/comptes/1"
+        }
+      }
+    },
+    {
+      "name": "Créer",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/comptes"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"solde\": 3000,\n  \"type\": \"COURANT\",\n  \"etat\": \"CREE\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Modifier",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/comptes/1"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"solde\": 9000,\n  \"etat\": \"ACTIVE\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Supprimer",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/comptes/3"
+        }
+      }
+    }
+  ]
+}
