@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,11 +22,11 @@ class CompteRepositoryTest {
     @BeforeEach
     void init() {
         compteRepository.deleteAll(); // le CommandLineRunner a pu pré-remplir la base
-        compteRepository.save(Compte.builder().solde(5000).dateCreation(new Date())
+        compteRepository.save(Compte.builder().solde(5000).dateCreation(LocalDate.now())
                 .type(TypeCompte.COURANT).etat(EtatCompte.CREE).build());
-        compteRepository.save(Compte.builder().solde(12000).dateCreation(new Date())
+        compteRepository.save(Compte.builder().solde(12000).dateCreation(LocalDate.now())
                 .type(TypeCompte.EPARGNE).etat(EtatCompte.ACTIVE).build());
-        compteRepository.save(Compte.builder().solde(800).dateCreation(new Date())
+        compteRepository.save(Compte.builder().solde(800).dateCreation(LocalDate.now())
                 .type(TypeCompte.COURANT).etat(EtatCompte.SUSPENDU).build());
     }
 

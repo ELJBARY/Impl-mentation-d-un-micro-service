@@ -9,7 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @SpringBootApplication
 public class CompteserviceApplication {
@@ -23,13 +23,13 @@ public class CompteserviceApplication {
     CommandLineRunner start(CompteRepository compteRepository) {
         return args -> {
             compteRepository.save(Compte.builder()
-                    .solde(5000).dateCreation(new Date())
+                    .solde(5000).dateCreation(LocalDate.now())
                     .type(TypeCompte.COURANT).etat(EtatCompte.CREE).build());
             compteRepository.save(Compte.builder()
-                    .solde(12000).dateCreation(new Date())
+                    .solde(12000).dateCreation(LocalDate.now())
                     .type(TypeCompte.EPARGNE).etat(EtatCompte.ACTIVE).build());
             compteRepository.save(Compte.builder()
-                    .solde(800).dateCreation(new Date())
+                    .solde(800).dateCreation(LocalDate.now())
                     .type(TypeCompte.COURANT).etat(EtatCompte.SUSPENDU).build());
 
             System.out.println("===== Liste des comptes =====");
